@@ -96,10 +96,7 @@ public class MainActivity extends AppCompatActivity {
         if (n <= 25) {
             return (n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2));
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Please enter index less than 25", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            Toast.makeText(MainActivity.this, "Please enter index less than 25", Toast.LENGTH_SHORT).show();
             return 0;
         }
     }

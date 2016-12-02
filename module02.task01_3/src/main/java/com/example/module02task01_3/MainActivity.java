@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     clearFields();
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please back to the form", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please back to the form", Toast.LENGTH_SHORT).show();
                 }
             }
         });

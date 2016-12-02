@@ -1,8 +1,7 @@
 package com.example.module02task01;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonShowText;
     private Button buttonEditText;
     private Button buttonEdit;
-    private Toast toast;
 
     private static final List<DataSave> DATA = new ArrayList<>();
     private static int currentPositionInList = 0;
@@ -181,8 +179,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showToast(String s) {
-        toast = Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
+        Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
     }
 }
