@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Module02.task01_3</string>
+    <string name="action_settings">Settings</string>
+    <string name="product_name">Product name</string>
+    <string name="manufacturer_name">Name of manufacturer</string>
+    <string name="manufacturer_contacts">Manufacturer phone number</string>
+    <string name="product_quantity">Product quantity (MT)</string>
+    <string name="production_date">Production date (YYYY-MM-DD)</string>
+    <string name="shelflife">Shelflife (month)</string>
+    <string name="price">Price (USD/MT)</string>
+    <string name="provider_name">Name of provider</string>
+    <string name="provider_contacts">Provider phone number</string>
+    <string name="show_storage">Storage</string>
+    <string name="next">Next</string>
+    <string name="show_form">Form</string>
+</resources>
