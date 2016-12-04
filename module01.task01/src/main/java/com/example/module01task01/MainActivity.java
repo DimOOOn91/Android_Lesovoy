@@ -11,6 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Тебе необходимо:
+ * Сделать кнопку, которая увеличивает переменную. Вывести переменную на экран.
+ * Создать поле ввода. В случае введения больше чем 12 символов в поле,
+ * увеличивать переменную из прошлой задачи.
+ * По достижению 23 в переменной вывести строку “I love GoIT so much”
+ *
+ * Ввести в одно поле индекс последовательности Фибоначчи и получить
+ * в другом поле число Фибоначчи на этом месте в последовательности.
+ */
 public class MainActivity extends AppCompatActivity {
     private Integer variable = 0;
     private TextView textView;

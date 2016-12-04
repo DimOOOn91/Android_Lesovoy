@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 5. Построить программу для работы с классом для хранения данных о сообщении на форуме
+ * (автор, тема, текст, время, дата создания и редактирование).
+ * Программа должна обеспечивать простейшие функции: ввод значений, редактирование, вывод значений.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private EditText editAuthor;

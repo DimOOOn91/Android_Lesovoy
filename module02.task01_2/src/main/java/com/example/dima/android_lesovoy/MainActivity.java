@@ -10,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 11. Создать класс «игра в крестики-нолики». Поле класса - массив из (3х3) или целые числа.
+ * Ставить можно только на свободные.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private static Board sBoard;

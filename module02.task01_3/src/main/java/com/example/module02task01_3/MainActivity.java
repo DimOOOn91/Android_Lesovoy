@@ -16,6 +16,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 18. Создать класс для единицы товара на складе
+ * (поля: товар, производитель, количество, дата изготовления, срок годности,  поставщик,
+ * тел. поставщика, тел. производителя, цена за 1 ед.).
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static List<Good> sStorage = new ArrayList<>();
