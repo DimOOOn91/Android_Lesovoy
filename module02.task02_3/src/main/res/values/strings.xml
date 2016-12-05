@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Module02.Task02_3</string>
+    <string name="enter_hexadecimal_number">Enter hexadecimal number</string>
+    <string name="save">Save</string>
+    <string name="show_result">Show result</string>
+    <string name="result">Result</string>
+</resources>
