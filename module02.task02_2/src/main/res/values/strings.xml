@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Module02.Task02_2</string>
+    <string name="save">Save</string>
+    <string name="show_result">Show result</string>
+    <string name="result">Result</string>
+    <string name="argument">Enter your arguments</string>
+</resources>
