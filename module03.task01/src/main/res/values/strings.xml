@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Module03.Task01</string>
+    <string name="enter_the_text">Enter the text</string>
+    <string name="add_text">Add text</string>
+    <string name="test">Scroll down</string>
+    <string name="web">Web</string>
+</resources>
