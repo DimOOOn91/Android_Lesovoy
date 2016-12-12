@@ -2,6 +2,7 @@ package com.example.module02task01_3;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -24,9 +25,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static List<Good> sStorage = new ArrayList<>();
-    private static int sPositionInStorage = 0;
+    private static int sPositionInStorage = -1;
+    private String MY_LOG = "myLog";
 
     private LinearLayout mFields;
+
     private EditText mProduct;
     private EditText mProductQuantity;
     private EditText mProductionDate;
@@ -37,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText mProviderName;
     private EditText mProviderContacts;
     private TextView mAnswer;
+
     private Button mShowNextProduct;
-
-
+    private Button mShowStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,22 +79,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Button showStorage = (Button) findViewById(R.id.show_storage);
-        showStorage.setOnClickListener(new View.OnClickListener() {
+        mShowStorage = (Button) findViewById(R.id.show_storage);
+        mShowStorage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mFields.getVisibility() == View.VISIBLE) {
                     mFields.setVisibility(View.GONE);
                     mAnswer.setVisibility(View.VISIBLE);
                     mShowNextProduct.setVisibility(View.VISIBLE);
-                    mShowNextProduct.callOnClick();
-                    showStorage.setText(R.string.show_form);
-                    sPositionInStorage = 0;
+                    if (mAnswer.getText().toString().equals("")) {
+                        mShowNextProduct.callOnClick();
+                    }
+                    mShowStorage.setText(R.string.show_form);
                 } else {
                     mFields.setVisibility(View.VISIBLE);
                     mAnswer.setVisibility(View.GONE);
                     mShowNextProduct.setVisibility(View.GONE);
-                    showStorage.setText(R.string.show_storage);
+                    mShowStorage.setText(R.string.show_storage);
                 }
             }
         });
@@ -101,13 +105,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (sStorage.size() > 0) {
-                    mAnswer.setText(sStorage.get(sPositionInStorage).toString());
-                    if (sPositionInStorage < sStorage.size()-1) {
+                    if (sPositionInStorage < sStorage.size() - 1) {
                         sPositionInStorage++;
                     } else {
                         sPositionInStorage = 0;
                     }
+                    mAnswer.setText(sStorage.get(sPositionInStorage).toString());
+                } else {
+                    Snackbar snackbar = Snackbar.make(view, "Your storage is empty", Snackbar.LENGTH_SHORT);
+                    snackbar.setAction("Add product", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mShowStorage.callOnClick();
+                        }
+                    });
+                    snackbar.show();
                 }
+
             }
         });
 
