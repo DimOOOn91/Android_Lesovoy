@@ -43,9 +43,7 @@ public class MyAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View rootView = view;
         if (rootView == null) {
-
             rootView = mLayoutInflater.inflate(R.layout.item_layout, viewGroup, false);
-
         }
 
         TextView key = (TextView) rootView.findViewById(R.id.key);

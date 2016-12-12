@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.list_view);
         mMyAdapter = new MyAdapter(MainActivity.this, mListKey, mListValue);
         mListView.setAdapter(mMyAdapter);
-        registerForContextMenu(mListView);
 
         mEditText = (EditText) findViewById(R.id.edit_text);
         Button button = (Button) findViewById(R.id.button);
