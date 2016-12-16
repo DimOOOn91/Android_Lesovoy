@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Module04.main</string>
+    <string name="task_1">Task 1</string>
+    <string name="task_2">Task 2</string>
+    <string name="enter_the_elements">Enter the elements separated by \",\" \n(1,2,3,…)</string>
+    <string name="fill">Fill</string>
+</resources>
