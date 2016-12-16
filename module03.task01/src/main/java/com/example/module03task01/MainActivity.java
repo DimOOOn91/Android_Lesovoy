@@ -35,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter mMyAdapter;
     private WebView mWebView;
 
-
+    /**
+     * Реализовать коллекцию по данному (https://docs.google.com/document/d/1JwVronpGMUBYioJ50_W096yLlvpdNpbKb5eSkae6884/edit) интерфейсу
+     * Покажите пример работы с Iterator (Iterable).
+     * Показать пример работы с Enumeration.
+     * Показать пример работы с ExpandableListView.
+     * Показать пример работы со Spinner. Обработать выбора элемента из Spiner.
+     * Проверить, работает ли OnItemSelectedListener с обычным ArrayAdapter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
