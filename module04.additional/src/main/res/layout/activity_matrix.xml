@@ -127,40 +127,51 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/mA_values"/>
 
-                <GridLayout
-                    android:id="@+id/matrixvaluesrecycler_mA_values"
+                <HorizontalScrollView
+                    android:id="@+id/scroll_mA_values"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/matrixvaluestext_mA"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp">
+                    android:layout_centerHorizontal="true">
 
-                </GridLayout>
+                    <GridLayout
+                        android:id="@+id/matrixvaluesrecycler_mA_values"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"/>
+
+                </HorizontalScrollView>
 
                 <TextView
                     android:id="@+id/matrixvaluestext_mB"
                     style="@style/TextSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/matrixvaluesrecycler_mA_values"
+                    android:layout_below="@id/scroll_mA_values"
                     android:layout_marginTop="10dp"
                     android:text="@string/mB_values"/>
 
-                <GridLayout
-                    android:id="@+id/matrixvaluesrecycler_mB_values"
+                <HorizontalScrollView
+                    android:id="@+id/scroll_mB_values"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/matrixvaluestext_mB"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp">
+                    android:layout_centerHorizontal="true">
 
-                </GridLayout>
+                    <GridLayout
+                        android:id="@+id/matrixvaluesrecycler_mB_values"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"/>
+
+                </HorizontalScrollView>
+
 
                 <Button
                     android:id="@+id/matrixvaluesbutton_multiply"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/matrixvaluesrecycler_mB_values"
+                    android:layout_below="@id/scroll_mB_values"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:text="@string/multiply"/>
@@ -183,21 +194,26 @@
                     android:gravity="center"
                     android:text="@string/result_of_multiplication"/>
 
-                <GridLayout
-                    android:id="@+id/matrixresultrecycle_mC_values"
+                <HorizontalScrollView
+                    android:id="@+id/scroll_mC_values"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/matrixresulttext_mC"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp">
+                    android:layout_centerHorizontal="true">
 
-                </GridLayout>
+                    <GridLayout
+                        android:id="@+id/matrixresultrecycle_mC_values"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"/>
+
+                </HorizontalScrollView>
 
                 <Button
                     android:id="@+id/matrixresultbutton_new_calc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/matrixresultrecycle_mC_values"
+                    android:layout_below="@id/scroll_mC_values"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:text="@string/multiply_new_matrix"/>
