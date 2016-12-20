@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Module04.additional</string>
+    <string name="log_out"><u>Log out</u></string>
+    <string name="please_log_in">Please enter your email and password:</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="create_account">Create account</string>
+    <string name="i_don_t_have_account"><u>I don\'t have account</u></string>
+    <string name="required">Required!</string>
+    <string name="too_short">Too short, should be not less than 6 symbols</string>
+    <string name="cannot_be_created">This account cannot be created</string>
+    <string name="wrong_data">Email or password is wrong</string>
+    <string name="wrong_email">Wrong e-mail</string>
+    <string name="indicate_mA">Please indicate the number of rows and columns of the matrix A:</string>
+    <string name="indicate_mB">Please indicate the number of rows and columns of the matrix B:</string>
+    <string name="columns">Columns</string>
+    <string name="rows">Rows</string>
+    <string name="set_sizes">Set sizes</string>
+    <string name="mA_values">Matrix A values:</string>
+    <string name="mB_values">Matrix B values:</string>
+    <string name="multiply">Multiply</string>
+    <string name="multiply_new_matrix">Multiply new matrix</string>
+    <string name="result_of_multiplication">Result of multiplication matrix A nad matrix B:</string>
+    <string name="matrix_sizes_error">Number of columns in matrix A must be equal to the number of rows in matrix B!</string>
+    <string name="all_fields_should_be_field">All fields should be field</string>
+</resources>

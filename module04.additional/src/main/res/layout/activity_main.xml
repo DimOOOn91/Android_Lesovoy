@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.module04additional.LoginActivity">
+
+    <TextView
+        android:id="@+id/maintext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:text="@string/please_log_in"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/mainedit_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/maintext"
+        android:layout_marginTop="30dp"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/mainedit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainedit_email"
+        android:layout_marginTop="5dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"/>
+
+    <RelativeLayout
+        android:id="@+id/mainframe_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainedit_password"
+        android:layout_marginTop="15dp"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/mainbutton_log_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/log_in"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:id="@+id/maintext_dont_have_account"
+            style="@style/Link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mainbutton_log_in"
+            android:gravity="center_horizontal"
+            android:text="@string/i_don_t_have_account"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/mainbutton_create_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainedit_password"
+        android:layout_marginTop="15dp"
+        android:text="@string/create_account"
+        android:textSize="15sp"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

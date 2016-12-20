@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "213101816585",
+    "firebase_url": "https://androidlesovoy-62035.firebaseio.com",
+    "project_id": "androidlesovoy-62035",
+    "storage_bucket": "androidlesovoy-62035.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213101816585:android:ca919407ab35f28b",
+        "android_client_info": {
+          "package_name": "com.example.module04additional"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213101816585-8hhu3tvm4btcoqu0190opn3svc1t7963.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL1UJxDjQz0_KMgleoy0XEvsz4a6mHcZo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

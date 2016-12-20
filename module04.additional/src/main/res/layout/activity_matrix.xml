@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MatrixActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/matrixframe_mA_mB_sizes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/matrixsizestext_mA_sizes"
+                    style="@style/TextSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/indicate_mA"/>
+
+                <LinearLayout
+                    android:id="@+id/matrixsizesframe_mA_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixsizestext_mA_sizes"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/matrixsizesxedit_mA_rows"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/rows"
+                        android:inputType="number"
+                        android:paddingRight="5dp"/>
+
+                    <EditText
+                        android:id="@+id/matrixsizesxedit_mA_columns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/columns"
+                        android:inputType="number"
+                        android:paddingLeft="5dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/matrixsizestext_mB_sizes"
+                    style="@style/TextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixsizesframe_mA_input"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/indicate_mB"/>
+
+                <LinearLayout
+                    android:id="@+id/matrixsizesframe_mB_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixsizestext_mB_sizes"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/matrixsizesxedit_mB_rows"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/rows"
+                        android:inputType="number"
+                        android:paddingRight="5dp"/>
+
+                    <EditText
+                        android:id="@+id/matrixsizesxedit_mB_columns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/columns"
+                        android:inputType="number"
+                        android:paddingLeft="5dp"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/matrixsizesbutton_set_m_sizes"
+                    style="@style/TextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixsizesframe_mB_input"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/set_sizes"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/matrixframe_mA_mB_values"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/matrixvaluestext_mA"
+                    style="@style/TextSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/mA_values"/>
+
+                <GridLayout
+                    android:id="@+id/matrixvaluesrecycler_mA_values"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixvaluestext_mA"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp">
+
+                </GridLayout>
+
+                <TextView
+                    android:id="@+id/matrixvaluestext_mB"
+                    style="@style/TextSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixvaluesrecycler_mA_values"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/mB_values"/>
+
+                <GridLayout
+                    android:id="@+id/matrixvaluesrecycler_mB_values"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixvaluestext_mB"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp">
+
+                </GridLayout>
+
+                <Button
+                    android:id="@+id/matrixvaluesbutton_multiply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixvaluesrecycler_mB_values"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/multiply"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/matrixframe_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/matrixresulttext_mC"
+                    style="@style/TextSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="60dp"
+                    android:gravity="center"
+                    android:text="@string/result_of_multiplication"/>
+
+                <GridLayout
+                    android:id="@+id/matrixresultrecycle_mC_values"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixresulttext_mC"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp">
+
+                </GridLayout>
+
+                <Button
+                    android:id="@+id/matrixresultbutton_new_calc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/matrixresultrecycle_mC_values"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/multiply_new_matrix"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
