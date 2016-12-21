@@ -18,6 +18,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Перемнож матрицы любой размерности.
+ * Покажи примеры работы с gravity/weight.
+ * При удачном логине выведи пользователя на список сущностей из твоего приложения.
+ * Сущность выбрать на свое усмотрение.
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "MyTag";
