@@ -98,6 +98,7 @@ public class MatrixActivity extends AppCompatActivity {
                     columnsMAEditText.setError(getString(R.string.all_fields_should_be_field));
                     rowsMBEditText.setError(getString(R.string.all_fields_should_be_field));
                     columnsMBEditText.setError(getString(R.string.all_fields_should_be_field));
+                    break;
                 } else {
                     rowsMAEditText.setError(null);
                     columnsMAEditText.setError(null);
@@ -113,6 +114,7 @@ public class MatrixActivity extends AppCompatActivity {
                 if (columnsMACount != rowsMBCount) {
                     rowsMBEditText.setError(getString(R.string.matrix_sizes_error));
                     columnsMAEditText.setError(getString(R.string.matrix_sizes_error));
+                    break;
                 } else {
                     rowsMAEditText.setError(null);
                     columnsMBEditText.setError(null);
