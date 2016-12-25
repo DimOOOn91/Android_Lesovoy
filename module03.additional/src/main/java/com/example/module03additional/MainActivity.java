@@ -3,21 +3,30 @@ package com.example.module03additional;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ExpandableListView;
 import android.widget.Spinner;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Date;
+
+/**
+ * Реализовать коллекцию по данному интерфейсу
+ * (https://docs.google.com/document/d/1JwVronpGMUBYioJ50_W096yLlvpdNpbKb5eSkae6884/edit)
+ * Покажите пример работы с Iterator (Iterable).
+ * Показать пример работы с Enumeration.
+ * Показать пример работы с ExpandableListView.
+ * Показать пример работы со Spinner. Обработать выбора элемента из Spiner.
+ * Проверить, работает ли OnItemSelectedListener с обычным ArrayAdapter.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
-    private MyCollection<Map<EnumTest, MyCollection<String>>> mCollection;
-    private CustomExpandableAdapter mCustomExpandableAdapter;
+    private MyCollection<Input> mCollection;
+    private RecyclerView mRecyclerView;
+    private Spinner mSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,53 +35,40 @@ public class MainActivity extends AppCompatActivity {
 
         mCollection = new MyCollection<>();
 
-        ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.exp_list_view);
-        mCustomExpandableAdapter = new CustomExpandableAdapter(this, mCollection);
-        expandableListView.setAdapter(mCustomExpandableAdapter);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayAdapter<EnumTest> arrayAdapter = new ArrayAdapter<EnumTest>(this, android.R.layout.simple_spinner_item, EnumTest.values());
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setAdapter(arrayAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mSpinner = (Spinner) findViewById(R.id.spinner);
+        mSpinner.setAdapter(arrayAdapter);
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Map<EnumTest, MyCollection<String>> map;
                 EnumTest key = EnumTest.values()[i];
-                MyCollection<String> value = null;
+                boolean isContainKey = false;
 
-                String time = String.format("%1$tD %1$tl:%1$tM (%1$tp)", Calendar.getInstance().getTime());
-
-                Log.d("MyLogCollection", String.valueOf(mCollection.size()));
-                for (int index = 0; index < mCollection.size(); index++) {
-                    map = mCollection.get(index);
-                    if (map.keySet().contains(key)) {
-                        value = map.get(key);
-                        Log.d("MyLogValue", value.toString());
-                        value.add(time);
-                        map.put(key, value);
-                        mCollection.add(map);
-                        break;
+                for (int k = 0; k < mCollection.size(); k++) {
+                    Input input = mCollection.get(k);
+                    boolean equals = key.equals(input.getTitle());
+                    if (equals) {
+                        input.addDate(new Date());
+                        isContainKey = true;
                     }
                 }
-                if (value == null) {
-                    map = new HashMap<EnumTest, MyCollection<String>>();
-                    value = new MyCollection<String>();
-                    value.add(time);
-                    map.put(key, value);
-                    mCollection.add(map);
+                if (!isContainKey) {
+                    Input input = new Input(key);
+                    input.addDate(new Date());
+                    mCollection.add(input);
                 }
-                Log.d("MyLogCollection", mCollection.toString());
-                mCustomExpandableAdapter.notifyDataSetChanged();
-                //TODO Logic
+                mRecyclerView.setAdapter(new CustomExpandableAdapter(MainActivity.this, mCollection));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Snackbar.make(spinner, "Nothing has been selected", Snackbar.LENGTH_SHORT).show();
-
+                Snackbar.make(mSpinner, "Nothing has been selected", Snackbar.LENGTH_SHORT).show();
             }
         });
 

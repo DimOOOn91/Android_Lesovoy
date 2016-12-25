@@ -1,94 +1,83 @@
 package com.example.module03additional;
 
 import android.content.Context;
-import android.util.Log;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import java.util.Iterator;
-import java.util.Map;
+import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
+import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
+import com.bignerdranch.expandablerecyclerview.ViewHolder.ChildViewHolder;
+import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
+
+import java.util.Date;
+import java.util.List;
 
 
-public class CustomExpandableAdapter extends BaseExpandableListAdapter {
+public class CustomExpandableAdapter extends ExpandableRecyclerAdapter<CustomExpandableAdapter.InputViewHolder, CustomExpandableAdapter.InputChildViewHolder> {
 
-    private MyCollection<Map<EnumTest, MyCollection<String>>> mGroups;
-    private Context mContext;
+    private LayoutInflater mInflater;
 
-    private LayoutInflater mLayoutInflater;
-
-    public CustomExpandableAdapter(Context context, MyCollection<Map<EnumTest, MyCollection<String>>> groups) {
-        mGroups = groups;
-        mContext = context;
-        mLayoutInflater = LayoutInflater.from(context);
+    public CustomExpandableAdapter(Context context, @NonNull List<? extends ParentListItem> parentItemList) {
+        super(parentItemList);
+        mInflater = LayoutInflater.from(context);
     }
 
     @Override
-    public int getGroupCount() {
-        return mGroups.size();
+    public InputViewHolder onCreateParentViewHolder(ViewGroup parentViewGroup) {
+        View view = mInflater.inflate(R.layout.parent_item_layout, parentViewGroup, false);
+        return new InputViewHolder(view);
     }
 
     @Override
-    public int getChildrenCount(int i) {
-        Map<EnumTest, MyCollection<String>> group = mGroups.get(i);
-        return group.values().toArray().length;
+    public InputChildViewHolder onCreateChildViewHolder(ViewGroup childViewGroup) {
+        View view = mInflater.inflate(android.R.layout.simple_list_item_1, childViewGroup, false);
+        return new InputChildViewHolder(view);
     }
 
     @Override
-    public Object getGroup(int i) {
-        Map<EnumTest, MyCollection<String>> group = mGroups.get(i);
-        return  group.keySet().iterator().next();
+    public void onBindParentViewHolder(InputViewHolder parentViewHolder, int position, ParentListItem parentListItem) {
+        Input input = (Input) parentListItem;
+        parentViewHolder.bind(input);
     }
 
     @Override
-    public Object getChild(int i, int i1) {
-        Map<EnumTest, MyCollection<String>> group = mGroups.get(i);
-        Iterator<MyCollection<String>>  iterator = group.values().iterator();
-        MyCollection<String> next = iterator.next();
-        Log.d("MyLogGetChilled", next.toString());
-        return  next.get(i1);
+    public void onBindChildViewHolder(InputChildViewHolder childViewHolder, int position, Object childListItem) {
+        Date date = (Date) childListItem;
+        childViewHolder.bind(date);
     }
 
-    @Override
-    public long getGroupId(int i) {
-        return i;
-    }
+    public class InputViewHolder extends ParentViewHolder {
 
-    @Override
-    public long getChildId(int i, int i1) {
-        return i1;
-    }
+        private TextView mCounter;
+        private TextView mTitle;
 
-    @Override
-    public boolean hasStableIds() {
-        return true;
-    }
-
-    @Override
-    public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
-        if (view == null) {
-            view = mLayoutInflater.inflate(android.R.layout.simple_expandable_list_item_1, viewGroup, false);
+        public InputViewHolder(View itemView) {
+            super(itemView);
+            mCounter = (TextView) itemView.findViewById(R.id.counter);
+            mTitle = (TextView) itemView.findViewById(R.id.title);
         }
-        TextView textView = (TextView) view.findViewById(android.R.id.text1);
-        textView.setText(getGroup(i).toString());
-        return view;
-    }
 
-    @Override
-    public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
-        if (view == null) {
-            view = mLayoutInflater.inflate(android.R.layout.simple_list_item_1, viewGroup, false);
+        public void bind(Input input) {
+            mCounter.setText(String.valueOf(input.getChildItemList().size()));
+            mTitle.setText(input.getTitle().name());
         }
-        TextView textView = (TextView) view.findViewById(android.R.id.text1);
-        String child = getChild(i, i1).toString();
-        textView.setText(child);
-        return view;
     }
 
-    @Override
-    public boolean isChildSelectable(int i, int i1) {
-        return true;
+    public class InputChildViewHolder extends ChildViewHolder {
+
+        private TextView mText;
+
+        public InputChildViewHolder(View itemView) {
+            super(itemView);
+            mText = (TextView) itemView.findViewById(android.R.id.text1);
+        }
+
+        public void bind(Date date) {
+            mText.setText(String.format("%1$tD  %1$tH:%1$tM:%1$tS", date));
+        }
     }
+
 }
