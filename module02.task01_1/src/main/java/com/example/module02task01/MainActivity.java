@@ -139,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
                     showToast("Please fill all fields");
                     break;
                 }
-
                 DataSave editedData = DATA.get(currentPositionInList);
                 editedData.setDateOfEditing(new Date());
                 editedData.setAuthor(author);
@@ -159,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
 
             default:
                 break;
-
         }
     }
 
