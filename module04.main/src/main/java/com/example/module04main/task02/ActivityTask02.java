@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.module04main.R;
-import com.example.module04main.task01.ActivityTask01;
+import com.example.module04main.utils.ArrayUtils;
 
 /**
  * Вариант 1-20
@@ -47,14 +47,14 @@ public class ActivityTask02 extends AppCompatActivity {
                     return;
                 }
                 try {
-                    mArray = ActivityTask01.parseString(input);
+                    mArray = ArrayUtils.parseString(input);
                 } catch (NumberFormatException e) {
                     Snackbar.make(view, String.format("Your input  \"%s\" is wrong!", e.getMessage()),
                             Snackbar.LENGTH_SHORT).show();
                     return;
                 }
 
-                int average = findAverage(mArray);
+                int average = ArrayUtils.findAverage(mArray);
 
                 int belowTheAverageCounter = 0;
                 int aboveTheAverageCounter = 0;
@@ -79,35 +79,8 @@ public class ActivityTask02 extends AppCompatActivity {
                         (belowTheAverageCounter * 100) / arrayLength + "%",
                         (aboveTheAverageCounter * 100) / arrayLength + "%");
                 mTextView.setText(text);
-
-
-
             }
         });
     }
-
-    private int findAverage(int[] array) {
-        int maxElement = maxOrMinElement(array, true);
-        int minElement = maxOrMinElement(array, false);
-        return (minElement + maxElement) / 2;
-    }
-
-    private int maxOrMinElement (int[] array, boolean isMax) {
-        int result = array[0];
-        for (int i = 1; i < array.length; i++) {
-            boolean comparator;
-            if (isMax) {
-                comparator = result < array[i];
-            } else {
-                comparator = result > array[i];
-            }
-            if (comparator) {
-                result = array[i];
-            }
-        }
-        return result;
-    }
-
-
 
 }

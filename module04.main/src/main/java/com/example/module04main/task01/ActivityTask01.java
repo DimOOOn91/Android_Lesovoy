@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.module04main.R;
+import com.example.module04main.utils.ArrayUtils;
 
 import java.util.Arrays;
 
@@ -49,13 +50,13 @@ public class ActivityTask01 extends AppCompatActivity {
                     return;
                 }
                 try {
-                    arrayA = parseString(input);
+                    arrayA = ArrayUtils.parseString(input);
                 } catch (NumberFormatException e) {
                     Snackbar.make(view, String.format("Your input  \"%s\" is wrong!", e.getMessage()),
                             Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                arrayB = arrayTreatment(arrayA);
+                arrayB = ArrayUtils.arrayTreatment(arrayA);
 
                 mTextView.setText(String.format("Array \"A\":\n %s \n\nArray \"b\":\n" +
                         " %s", Arrays.toString(arrayA), Arrays.toString(arrayB)));
@@ -65,79 +66,8 @@ public class ActivityTask01 extends AppCompatActivity {
 
     }
 
-    public static int[] parseString(String s) throws NumberFormatException {
-        int[] result = new int[0];
-        String[] strings = s.split(",");
-        for (String string : strings) {
-            if (string.equals("")) {
-                break;
-            }
-            try {
-                int element = Integer.parseInt(string);
-                result = addToArray(result, element);
-            } catch (NumberFormatException e) {
-                throw new NumberFormatException(string);
-            }
-        }
-        return result;
-    }
 
-    private int[] arrayTreatment(int[] arrayA) {
-        int[] evenElements = new int[0];
-        int[] oddElements = new int[0];
-        int[] result = new int[0];
 
-        for (int i = 0; i < arrayA.length; i++) {
-            int element = arrayA[i];
-            if (element % 2 == 0) {
-                evenElements = addToArray(evenElements, element);
-            } else {
-                oddElements = addToArray(oddElements, element);
-            }
-        }
 
-        sort(evenElements, true);
-        sort(oddElements, false);
-
-        for (int element : evenElements) {
-            result = addToArray(result, element);
-        }
-        for (int element : oddElements) {
-            result = addToArray(result, element);
-        }
-
-        return result;
-    }
-
-    public static int[] addToArray(int[] array, int element) {
-        int prevLength = array.length;
-        array = Arrays.copyOf(array, prevLength + 1);
-        array[prevLength] = element;
-        return array;
-    }
-
-    private void sort(int[] array, boolean rise) {
-        for (int i = array.length - 1; i >= 1; i--) {
-            boolean isSorted = true;
-            for (int j = 0; j < i; j++) {
-                boolean compare;
-                if (rise) {
-                    compare = array[j] > array[j + 1];
-                } else {
-                    compare = array[j] < array[j + 1];
-                }
-                if (compare) {
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                    isSorted = false;
-                }
-            }
-            if (isSorted) {
-                break;
-            }
-
-        }
-    }
 
 }
