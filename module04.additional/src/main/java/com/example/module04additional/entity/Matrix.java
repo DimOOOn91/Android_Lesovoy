@@ -28,7 +28,7 @@ public class Matrix {
 
     public double[] getColumn(int column) {
         double[] result = new double[columnsCount()];
-        for (int i = 0; i < columnsCount(); i++) {
+        for (int i = 0; i < rowsCount(); i++) {
             result[i] = getElement(i, column);
         }
         return result;

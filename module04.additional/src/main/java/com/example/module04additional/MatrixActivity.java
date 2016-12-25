@@ -161,11 +161,19 @@ public class MatrixActivity extends AppCompatActivity {
                 }
                 mLayoutResult.setVisibility(View.GONE);
                 mLayoutSetMSizes.setVisibility(View.VISIBLE);
+
+                cleanAllMatrix();
                 break;
 
             default:
                 break;
         }
+    }
+
+    private void cleanAllMatrix() {
+        mGridMatrixA.removeAllViews();
+        mGridMatrixB.removeAllViews();
+        mGridMatrixC.removeAllViews();
     }
 
     private boolean fillMatrix(Matrix matrix, GridLayout gridLayout) {
@@ -196,7 +204,8 @@ public class MatrixActivity extends AppCompatActivity {
              i++) {
             for (int j = 0; j < matrix.columnsCount() && viewCounter < viewGroup.getChildCount();
                  j++, viewCounter++) {
-                ((TextView) viewGroup.getChildAt(viewCounter)).setText(String.valueOf(matrix.getElement(i, j)));
+                ((TextView) viewGroup.getChildAt(viewCounter))
+                        .setText(String.valueOf(matrix.getElement(i, j)));
             }
         }
     }
