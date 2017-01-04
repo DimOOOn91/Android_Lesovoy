@@ -11,8 +11,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.module05main.MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:hint="@string/login"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:inputType="textPassword"
+        android:hint="@string/password"/>
+
+    <Button
+        android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:layout_below="@id/password"
+        android:text="@string/save"/>
+
+    <Button
+        android:id="@+id/button_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:visibility="gone"
+        android:layout_toRightOf="@id/button_save"
+        android:text="@string/load"/>
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_save"
+        android:textSize="25sp"/>
 </RelativeLayout>

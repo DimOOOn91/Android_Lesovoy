@@ -1,1 +1,1 @@
-include ':module01.task01', ':module02.task01_1', ':module02.task01_2', ':module02.task01_3', ':module02.task02_1', ':module02.task02_2', ':module02.task02_3', ':module03.task01', ':module03.additional', ':module04.main', ':module04.additional'
+include ':module01.task01', ':module02.task01_1', ':module02.task01_2', ':module02.task01_3', ':module02.task02_1', ':module02.task02_2', ':module02.task02_3', ':module03.task01', ':module03.additional', ':module04.main', ':module04.additional', ':module05.main'
