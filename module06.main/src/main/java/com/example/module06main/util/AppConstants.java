@@ -1,5 +1,7 @@
 package com.example.module06main.util;
 
+import java.util.Locale;
+
 public class AppConstants {
 
     /**
@@ -8,7 +10,7 @@ public class AppConstants {
     public static final String ALARM_OBJ_KEY = "com.example.module06main.alarm";
 
     /**
-     * Date format
+     * Locale
      */
-    public static final String DATE_FORMAT = "dd-MM-yyyy";
+    public static final Locale LOCALE = Locale.ENGLISH;
 }

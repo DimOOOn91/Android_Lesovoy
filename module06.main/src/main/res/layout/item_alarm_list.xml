@@ -36,15 +36,25 @@
             android:text="@string/today"
             android:textSize="15sp"/>
 
-        <Switch
-            android:id="@+id/switcher_alarm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"/>
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_delete_grey600_48dp"/>
+
+        <Switch
+            android:id="@+id/switcher_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/btn_delete"
+            android:layout_toStartOf="@id/btn_delete"
+            android:rotation="90"/>
 
         <ScrollView
             android:layout_width="match_parent"
